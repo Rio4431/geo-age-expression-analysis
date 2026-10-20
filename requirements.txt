@@ -1,7 +1,8 @@
+GEOparse
+matplotlib
 numpy
 pandas
+requests
 scipy
 statsmodels
-matplotlib
-GEOparse
 notebook
