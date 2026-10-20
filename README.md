@@ -1,28 +1,20 @@
-# GEO Skin Aging Analysis Template
+# GEO Age-Associated Gene Expression Analysis
 
-A reusable Jupyter notebook for exploring age-associated gene expression in healthy human skin using the public NCBI GEO dataset [GSE18876](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18876) (platform GPL5175).
+A Jupyter notebook for exploring associations between age and gene expression using NCBI GEO microarray and bulk RNA-seq data.
 
 ## Features
+- Select a GEO Series (GSE ID) and an NCBI Gene ID.
+- Analyze age trends using OLS regression and Spearman correlation.
+- Compare young and older groups using Welch's t-test.
+- Export CSV results and plots.
 
-- Select a target gene by **NCBI Gene ID**.
-- Match gene annotations to microarray probe sets.
-- Analyze age associations with OLS regression and Spearman correlation.
-- Compare young and older groups using Welch’s t-test (95% confidence interval and nominal p-value).
-- Export CSV summaries and PNG plots.
-
-## Getting started
-
+## Usage
 ```bash
 pip install -r requirements.txt
-jupyter notebook geo_skin_aging_analysis.ipynb
+jupyter notebook geo_age_expression_analysis.ipynb
 ```
 
-Edit `GENE_ID`, `YOUNG_MAX`, and `OLD_MIN` in the configuration cell, then run all cells. GEO data are downloaded on first use to `data/`; outputs are saved under `results/`.
+Set `GSE_ID` and `GENE_ID` in the notebook. Additional settings may be needed for some datasets. The `data/` and `results/` folders are created automatically.
 
-## Limitations
-
-This notebook is tailored to GSE18876 / GPL5175, not all GEO datasets. RMA expression is typically on a log2 scale. Reported p-values are not adjusted for multiple testing; findings are exploratory and do not establish causality.
-
-## Data source
-
-NCBI Gene Expression Omnibus: [GSE18876](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE18876). Original dataset and annotations remain subject to their respective source terms.
+## Note
+Results are exploratory. Check sample metadata and expression units before interpreting findings. Not all GEO datasets are supported; RNA-seq analysis is not a substitute for count-based differential expression testing.
